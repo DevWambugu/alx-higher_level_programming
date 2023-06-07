@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 # create a copy of the string
 # remove the characters at a specific position
