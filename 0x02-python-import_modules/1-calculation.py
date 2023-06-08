@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-#  import functions from the file
-#  do some Maths, and prints the result
 
 if __name__ == "__main__":
-    '''does some math and prints the result'''
+    """does some math and prints the result"""
     from calculator_1 import add, mul, sub, div
 
     a = 10
