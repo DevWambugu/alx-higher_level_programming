@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # print number of arguments and the args
     if args == 2:
         print("{} argument:".format(args - 1))
-        print(sys.argv[1])
+        print("1: {}".format(sys.argv[1]))
     elif args == 1:
         print("{} arguments.".format(0))
     else:
