@@ -5,10 +5,11 @@
 
 
 class Square:
-    '''Define a class Square
-    '''
+    '''Define a class Square'''
     def __init__(self, size)
-    '''Private instance attribute: size
-    Instantiation with size (no type/value verification)
-    '''
+    """Initialize a new Square.
+
+    Args:
+    size (int): The type and value of the new square.
+    """
     self.__size = size
