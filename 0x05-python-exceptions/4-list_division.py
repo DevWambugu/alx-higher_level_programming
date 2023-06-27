@@ -3,8 +3,8 @@
 #  divides element by element 2 lists
 def list_division(my_list_1, my_list_2, list_length):
     '''divides element by element 2 lists'''
+    my_list = []
     for i in range(0, list_length):
-        my_list = []
         try:
             rst = my_list_1[i] / my_list_2[i]
         except TypeError:
