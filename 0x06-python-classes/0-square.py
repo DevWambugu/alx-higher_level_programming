@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+# 0-square.py
+# DevWambugu
+"""Define a class Square."""
 
-#  define an empty class called square
 class Square:
     '''This class defines an empty class
     called square. No module should be imported.
