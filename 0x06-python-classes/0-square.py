@@ -3,6 +3,7 @@
 # DevWambugu
 """Define a class Square."""
 
+
 class Square:
     '''This class defines an empty class
     called square. No module should be imported.
