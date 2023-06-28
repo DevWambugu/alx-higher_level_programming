@@ -6,7 +6,7 @@
 
 class Square:
     '''Define a class Square'''
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Instantiation with optional size.
         size must be an integer, otherwise raise a TypeError
         exception with the message 'size must be an integer'.
@@ -49,9 +49,18 @@ class Square:
         """
         if self.__size == 0:
             print()
+        if isinstance(self.position, int):
+            vertical_offset = self.position
+            horizontal_offset = 0
+            top_offset = 0
         else:
-            for i in range(self.__size):
-                if i < self.__size - 1:
-                    print("#" * self.__size)
-                else:
-                    print("#" * self.__size, end="")
+            vertical_offset = self.position[0]
+            horizontal_offset = self.position[1][0]
+            top_offset = self.position[1][1]
+
+        for i in range(vertical_offset):
+            print()
+
+        for i in range(self.size + top_offset):
+            print(' ' * horizontal_offset, end='')
+            print('#' * self.size)
