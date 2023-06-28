@@ -1,14 +1,24 @@
 #!/usr/bin/python3
 # 2-square.py
 # DevWambugu
-"""Define a class Node."""
+"""Define a class Node.
+defines a node of a singly linked list
+"""
 
 
 class Node:
-    '''defines a class node'''
+    '''defines a class node
+    defines a node of a singly linked list
+    '''
 
     def __init__(self, data, next_node=None):
-        '''set a private attribute called data'''
+        '''set a private attribute called data
+	Private instance attribute: data:
+        property def data(self): to retrieve it
+        property setter def data(self, value): to set it:
+        data must be an integer, otherwise raise a TypeError
+        exception with the message data must be an integer
+	'''
         self.__data = data
         self.__next_node = next_node
 
