@@ -2,7 +2,7 @@
 # 100-singly_linked_list.py
 # DevWambugu
 """Define a class Node.
-defines a node of a singly linked list
+   defines a node of a singly linked list
 """
 
 
