@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 # 100-singly_linked_list.py
 # DevWambugu
-"""Define a class Node.
-   defines a node of a singly linked list
-"""
+"""defines a node of a singly linked list"""
 
 
 class Node:
@@ -17,7 +15,7 @@ class Node:
         Args:
             data: new Node data
             next_node: next node of the new_Node.
-	'''
+        '''
         self.__data = data
         self.__next_node = next_node
 
@@ -47,7 +45,18 @@ class Node:
         self.__next_node = value
 
 
+''' write a class SinglyLinkedList that defines
+    a singly linked list by:
+    Private instance attribute:
+    head (no setter or getter)
+'''
+
+
 class SinglyLinkedList:
+    '''Private instance attribute: head (no setter or getter)
+    Simple instantiation
+    '''
+    
     def __init__(self):
         '''Private instance attribute: head (no setter or getter)'''
         self.__head = None
