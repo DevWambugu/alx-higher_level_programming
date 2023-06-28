@@ -12,12 +12,11 @@ class Node:
     '''
 
     def __init__(self, data, next_node=None):
-        '''set a private attribute called data
-	Private instance attribute: data:
-        property def data(self): to retrieve it
-        property setter def data(self, value): to set it:
-        data must be an integer, otherwise raise a TypeError
-        exception with the message data must be an integer
+        '''Initialize new_Node.
+
+        Args:
+            data: new Node data
+            next_node: next node of the new_Node.
 	'''
         self.__data = data
         self.__next_node = next_node
@@ -56,6 +55,9 @@ class SinglyLinkedList:
     def sorted_insert(self, value):
         '''inserts a new Node into the correct sorted position
         in the list (increasing order)
+
+	Args:
+            value: new Node to be insert
         '''
         new_node = Node(value)
         if self.__head is None:
