@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# 2-square.py
+# 100-singly_linked_list.py
 # DevWambugu
 """Define a class Node.
 defines a node of a singly linked list
