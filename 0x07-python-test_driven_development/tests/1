@@ -1,0 +1,32 @@
+#  0-add_integer.py
+#  DevWambugu
+# Test cases for the add_integer function
+# Each test case is represented as a tuple (a, b)
+
+# Test case 1: Addition of two integers
+>>> add_integer(5, 3)
+8
+
+# Test case 2: Addition of a float and an integer
+>>> add_integer(54.5, 2)
+56
+
+# Test case 3: Addition with only the first integer provided (default value of b used)
+>>> add_integer(30)
+128
+
+# Test case 4: Addition with a string as the second argument (raises an error)
+>>> add_integer(6, "hio")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+# Test case 5: Addition of two floats
+>>> add_integer(4.4, 8.9)
+12
+
+# Test case 6: More than 2 arguments (raises an error)
+>>> add_integer(3, 6, 8)
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() takes at most 2 arguments (3 given)
