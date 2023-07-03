@@ -4,7 +4,7 @@
 """Define a class Rectangle."""
 
 
-class Square:
+class Rectangle:
     '''This class defines an empty class
     called Rectangle. No module should be imported.
     The are no attributes or methods defined yet
