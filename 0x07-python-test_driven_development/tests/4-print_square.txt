@@ -1,0 +1,39 @@
+#  4-print_square.txt
+#  DevWambugu
+ 
+===========================
+How to Use 4-print_square.py
+===========================
+ 
+This module defines a "4-print_square.py" which prints a square of size size
+
+Usage
+=====
+
+the function prints a square of give size
+it raises errors if size is equal or less than zero
+it also raises errors if size is not an integer
+
+==================
+Testcase 1:
+>>> print_square = __import__('4-print_square').print_square
+>>> print_square(4)
+####
+####
+####
+####
+
+Test case 2:
+>>> print_square(-2)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+
+Test case 3:
+>>> print_square(0.8)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+Test case 4:
+>>> print_square(-0.8)
+Traceback (most recent call last):
+TypeError: size must be an integer
