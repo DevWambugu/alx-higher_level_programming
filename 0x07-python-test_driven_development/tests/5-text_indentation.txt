@@ -1,0 +1,24 @@
+#  5-text_indentation.txt
+#  DevWambugu
+ 
+===========================
+How to Use 5-text_indentation.py
+===========================
+ 
+This module defines a "5-text_indentation.py" which prints a text
+with 2 new lines after each of these characters: ., ? and :
+
+Usage
+=====
+
+the function prints a text
+9 with 2 new lines after each of these characters: ., ? and :
+it raises errors when the string conditions are not met
+
+==================
+Test case 1:
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("My name is Eric. I love karate.")
+My name is Eric.
+<BLANKLINE>
+ I love karate.
