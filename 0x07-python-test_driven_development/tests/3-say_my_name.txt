@@ -1,0 +1,35 @@
+# 3-say_my_name.txt
+# DevWambugu
+ 
+===========================
+How to Use 3-say_my_name.py
+===========================
+ 
+This module defines a "3-say_my_name.py" which writes the ful name of a person
+
+Usage
+=====
+
+the function prints the name of a person given the first and last name
+it raises errors when the string conditions are not met
+
+==================
+Test case 1:
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+Test case 2:
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+Test case 3:
+>>> say_my_name("white", 12)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+Test case 4:
+>>> say_my_name("white", [Eric])
+Traceback (most recent call last):
+NameError: name 'Eric' is not defined
