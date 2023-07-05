@@ -51,7 +51,7 @@ class Rectangle:
         else:
             perimeter = (2 * self.width) + (2 * self.height)
             return perimeter
-    
+
     def __str__(self):
         '''Returns a string representation of the rectangle'''
         if self.width == 0 or self.height == 0:
