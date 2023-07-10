@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+# 0-lookup.py
+# DevWambugu
+"""Define a function that returns attributes and methods
+in an object"""
+
+
+def lookup(obj):
+    '''returns a list of available methods and 
+    attributes in an object
+    '''
+    #  initialize 2 lists methods and attributes
+    methods = []
+    attributes = []
+    '''loop through the object with the conditions:
+    if its inbuilt avoid it only those starting with __
+    if it's callabe then it's a method else it's an attribute
+    '''
+    for item in dir(obj):
+        if not item.startswith('__'):
+	    if callable(getattr(obj, item)):
+                methods.append(item)
+            else:
+                attributes.append(item)
+
+    return attributes, methods
