@@ -8,8 +8,7 @@
 
 def is_kind_of_class(obj, a_class):
     '''this function checks if an object
-    is an insatnce of a clas from which 
+    is an insatnce of a clas from which
     it is inherited from
     '''
     return isinstance(obj, a_class)
-
