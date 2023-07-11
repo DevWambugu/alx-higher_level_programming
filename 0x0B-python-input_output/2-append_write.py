@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #  2-append_write.py
 #  DevWambugu
-'''Thi function adds a string at the end of 
+'''Thi function adds a string at the end of
 text and returns number of character written'''
 
 
