@@ -13,25 +13,48 @@ usage
 ==========================
 Test case 1
 MyList = __import__('1-my_list').MyList
->>>my_list = MyList()
->>>my_list.append(1)
->>>my_list.append(4)
->>>my_list.append(2)
->>>my_list.append(3)
->>>my_list.append(5)
->>>print(my_list)
->>>my_list.print_sorted()
->>>print(my_list)
-[1, 4, 2, 3, 5]
-[1, 2, 3, 4, 5]
-[1, 4, 2, 3, 5]
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+>>> type(my_list)
+<class '1-my_list.MyList'>
 
 Test case 2
->>>my_list = MyList()
->>>my_list.append(-1)
->>>my_list.append(2)
->>>my_list.append(1)
->>>my_list.append(-5)
-[-1, 2, 1, -5]
-[-5, -1, 1, 2]
-[-1, 2, 1, -5]
+>>> print(my_list)
+[]
+
+Test case 3
+>>> my_list = MyList([0, 2, 4])
+>>> print(my_list)
+[0, 2, 4]
+
+Test case 4
+>>> my_list = MyList(None)
+Traceback (most recent call last):
+TypeError: 'NoneType' object is not iterable
+
+Test case 5
+>>> my_list = MyList([4, 2], [3, 7])
+Traceback (most recent call last):
+TypeError: list() takes at most 1 argument (2 given)
+
+==========
+lists is an inherited class which means that elements can be added to it
+using a method such as append
+==============
+Test case 1
+>>> my_list = MyList()
+>>> my_list.append(2)
+>>> my_list.append(4)
+>>> my_list.append(5)
+>>> print(my_list)
+[2, 4, 5]
+
+test case 2
+>>> my_list[0] = 6
+>>> print(my_list)
+[6, 2, 3]
+
+Test case 3
+>>> my_list.remove(2)
+>>> print(my_list)
+[6, 3]
