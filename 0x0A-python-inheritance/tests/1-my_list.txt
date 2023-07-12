@@ -42,6 +42,7 @@ lists is an inherited class which means that elements can be added to it
 using a method such as append
 ==============
 Test case 1
+MyList = __import__('1-my_list').MyList
 >>> my_list = MyList()
 >>> my_list.append(2)
 >>> my_list.append(4)

@@ -1,3 +1,20 @@
 #  7-base_geometry.txt
 #  DevWambugu
-# Test cases for thebsegeometry class
+#  Test cases for thebsegeometry class
+
+===========================
+How to Use 7-base_geometry.py
+===========================
+
+This module defines a class 7-base_geometry.py
+Usage
+=====
+
+th class defines a base geometry class
+
+==================
+Test case 1:
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> base_geometry = BaseGeometry()
+>>> type(base_geometry)
+<class '7-base_geometry.BaseGeometry'>
