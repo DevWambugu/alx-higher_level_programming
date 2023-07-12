@@ -12,6 +12,7 @@ print sorted functiion that prints mylist in a sorted list
 usage
 ==========================
 Test case 1
+MyList = __import__('1-my_list').MyList
 >>>my_list = MyList()
 >>>my_list.append(1)
 >>>my_list.append(4)
