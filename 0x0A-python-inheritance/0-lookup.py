@@ -6,7 +6,7 @@ in an object"""
 
 
 def lookup(obj):
-    '''returns a list of available methods and 
+    '''returns a list of available methods and
     attributes in an object
     '''
     return dir(obj)
