@@ -23,4 +23,4 @@ def append_after(filename="", search_string="", new_string=""):
         for i in strings:
             f.write(i)
             if search_string in i:
-                f.write(new_string + "\n")
+                f.write(new_string)
