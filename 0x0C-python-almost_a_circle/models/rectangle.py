@@ -82,14 +82,49 @@ class Rectangle(Base):
 
     def display(self):
         ''' prints in stdout the Rectangle
-        instance with the character #'''
-        for i in range(self.__height):
-            print("#" * self.__width)
+        instance with the character #
+        It also instance with the character #
+        by taking care of x and y'''
+        for i in range(self.__y):
+            print()
+        for _ in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
         '''this function overides the
         str method and return a custom
         string'''
         return f"[Rectangle]({self.id})"\
-                f"{self.x}/{self.y} - {self.width}/{self.height}"
+               f"{self.x}/{self.y} - {self.width}/{self.height}"
 
+    def update(self, *args):
+        '''assigns an argument to every attribute
+        Note that argument order is important when kwargs is
+        not included. Else if you include kwargs,
+        argument order is not important. kwargs contains
+        key and value pairs. If args exists, do not move to kwargs
+        '''
+        number_of_args = len(args)
+        if args:
+            if number_of_args >= 1:
+                self.id = args[0]
+            if number_of_args >= 2:
+                self.width = args[1]
+            if number_of_args >= 3:
+                self.height = args[2]
+            if number_of_args >= 4:
+                self.x = args[3]
+            if number_of_args >= 5:
+                self.y = args[4]
+        elif kwargs:
+            for key, value in kwargs.items():
+                if key == 'id':
+                    self.id = value
+                elif key == 'width':
+                    self.width = value
+                elif key == 'height':
+                    self.height = value
+                elif key == 'x':
+                    self.x = value
+                elif key == 'y':
+                    self.y = value
