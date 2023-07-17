@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+#  test_base.py
+#  DevWambugu
+'''This unittest module tests the base class
+the test classes ar as follows
+1. TestBase_instantiation
+'''
+import os
+import unittest
+from models.base import Base
+from models.rectangle import Rectangle
+
+
+class TestBase_instantiation(unittest.TestCase):
+    '''This class contains instances that test
+    the base intialization'''
+    def test_base(self):
+        '''This method creates an instance
+        that checks if the base class initializes correctly
+        and matches the expected value'''
+        base = Base(2)
+        self.assertEqual(base.id, 1)
+
+    def test_base_negative(self):
+        '''This method creates an instance that
+        the class can initialize with a negative value'''
+        base = Base(-1)
+        self.assertEqual(base.id, -1)
+
+    def test_base_string(self):
+        '''This method creates an instance that
+        checks if the class can initialize a string id'''
+        base = Base("my_class")
+        self.assertEqual("my_class", base.id)
+
+    def test_base_zero(self):
+        '''This method creates an instance that
+        checks if the base class can instantiate 'zero id'
+        '''
+        base1 = Base(0)
+        base2 = Base(0)
+        self.assertEqual(base1.id, base2.id - 1)
+
+    def test_base_None(self):
+        '''checks for None id'''
+        base1 = Base(None)
+        base2 = Base(None)
+        self.assertEqual(base.id, base2.id - 1)
+
+
+'''
+run the test cases'''
+if __name__ == '__main__':
+    unittest.main()

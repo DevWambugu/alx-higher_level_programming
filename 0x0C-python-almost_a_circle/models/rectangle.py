@@ -85,3 +85,11 @@ class Rectangle(Base):
         instance with the character #'''
         for i in range(self.__height):
             print("#" * self.__width)
+
+    def __str__(self):
+        '''this function overides the
+        str method and return a custom
+        string'''
+        return f"[Rectangle]({self.id})"\
+                f"{self.x}/{self.y} - {self.width}/{self.height}"
+
