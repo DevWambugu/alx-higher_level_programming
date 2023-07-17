@@ -128,3 +128,14 @@ class Rectangle(Base):
                     self.x = value
                 elif key == 'y':
                     self.y = value
+
+    def to_dictionary(self):
+        '''this function returns the
+        dictioanry representation of a triangle'''
+        return 
+        {
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
