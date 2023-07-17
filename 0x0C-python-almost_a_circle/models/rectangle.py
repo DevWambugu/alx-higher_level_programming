@@ -104,30 +104,39 @@ class Rectangle(Base):
         argument order is not important. kwargs contains
         key and value pairs. If args exists, do not move to kwargs
         '''
-        number_of_args = len(args)
-        if args:
-            if number_of_args >= 1:
-                self.id = args[0]
-            if number_of_args >= 2:
-                self.width = args[1]
-            if number_of_args >= 3:
-                self.height = args[2]
-            if number_of_args >= 4:
-                self.x = args[3]
-            if number_of_args >= 5:
-                self.y = args[4]
-        elif kwargs:
+        if args and len(args) != 0:
+            argument = 0
+            for i in args:
+                if argument == 0:
+                    if i is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = i
+                elif argument == 1:
+                    self.width = i
+                elif argument == 2:
+                    self.height = i
+                elif argument == 3:
+                    self.x = i
+                elif argument == 4:
+                    self.y = i
+                argument += 1
+
+        elif len(kwargs) != 0:
             for key, value in kwargs.items():
-                if key == 'id':
-                    self.id = value
-                elif key == 'width':
+                if key == "id":
+                    if value is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = value
+                elif key == "width":
                     self.width = value
-                elif key == 'height':
+                elif key == "height":
                     self.height = value
-                elif key == 'x':
+                elif key == "x":
                     self.x = value
-                elif key == 'y':
-                    self.y = value
+                elif key == "y":
+                    self.y = value 
 
     def to_dictionary(self):
         '''this function returns the
