@@ -33,3 +33,36 @@ class Square(Rectangle):
         string'''
         return f"[Rectangle]({self.id})"\
                f"{self.x}/{self.y} - {self.width}/{self.height}"
+
+    def update(self, *args, **kwargs):
+        '''this public method
+        assigns attributes'''
+        if len(args) != 0:
+            argument = 0
+            for i in args:
+                if argument == 0:
+                    if argument is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = i
+                elif argument == 1:
+                    self.size = i
+                elif argument == 2:
+                    self.x = i
+                elif argument == 3:
+                    self.y = i
+                argument += 1
+
+        elif len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "id":
+                    if value is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = value
+                elif key == "size":
+                    self.size = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
