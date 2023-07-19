@@ -10,7 +10,13 @@ import csv
 
 
 class Base:
+    '''This class represents the base model.
 
+    This will be the basis of all projects
+
+    Attributes:
+        __nb_objects (int): This refers to no instantiated Bases.
+    '''
     __nb_objects = 0
 
     def __init__(self, id=None):
