@@ -70,7 +70,7 @@ class Base:
         """ This function Returns an
         instance with all attributes already set
         it will be used in the deserialization
-	of a csv file"""
+        of a csv file"""
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
         if cls.__name__ == "Square":
@@ -93,7 +93,8 @@ class Base:
 
                 # Handle empty strings or set default values
                 list_dicts = [
-                    {key: int(value) if value.strip() != '' else 0 for key, value in d.items()}
+                    {key: int(value) if value.strip() != '' else 0
+                        for key, value in d.items()}
                     for d in list_dicts
                 ]
             return [cls.create(**d) for d in list_dicts]
