@@ -4,6 +4,15 @@
 '''This unittest module tests the base class
 the test classes ar as follows
 1. TestBase_instantiation
+Unittest classes:
+    TestBase_instantiation - line 23
+    TestBase_to_json_string - line 110
+    TestBase_save_to_file - line 156
+    TestBase_from_json_string - line 234
+    TestBase_create - line 288
+    TestBase_load_from_file - line 340
+    TestBase_save_to_file_csv - line 406
+    TestBase_load_from_file_csv - line 484
 '''
 import os
 import unittest
@@ -13,70 +22,120 @@ from models.square import Square
 
 
 class TestBase_instantiation(unittest.TestCase):
-    '''This class contains instances that test
-    the base intialization'''
-    def test_base(self):
-        '''This method creates an instance
-        that checks if the base class initializes correctly
-        and matches the expected value'''
-        base = Base(2)
-        self.assertEqual(base.id, 2)
+    """Unittests for testing instantiation of the Base class."""
 
-    def test_base_negative(self):
-        '''This method creates an instance that
-        the class can initialize with a negative value'''
-        base = Base(-1)
-        self.assertEqual(base.id, -1)
+    def test_no_arg(self):
+        b1 = Base()
+        b2 = Base()
+        self.assertEqual(b1.id, b2.id - 1)
 
-    def test_base_string(self):
-        '''This method creates an instance that
-        checks if the class can initialize a string id'''
-        base = Base("my_class")
-        self.assertEqual("my_class", base.id)
+    def test_three_bases(self):
+        b1 = Base()
+        b2 = Base()
+        b3 = Base()
+        self.assertEqual(b1.id, b3.id - 2)
 
-    def test_base_zero(self):
-        '''This method creates an instance that
-        checks if the base class can instantiate 'zero id'
-        '''
-        base1 = Base(0)
-        base2 = Base(0)
-        self.assertEqual(base1.id, 0)
+    def test_None_id(self):
+        b1 = Base(None)
+        b2 = Base(None)
+        self.assertEqual(b1.id, b2.id - 1)
 
-    def test_base_None(self):
-        '''checks for None id'''
-        base1 = Base(None)
-        base2 = Base(None)
-        self.assertEqual(base1.id, base2.id - 1)
+    def test_unique_id(self):
+        self.assertEqual(12, Base(12).id)
+
+    def test_nb_instances_after_unique_id(self):
+        b1 = Base()
+        b2 = Base(12)
+        b3 = Base()
+        self.assertEqual(b1.id, b3.id - 1)
+
+    def test_id_public(self):
+        b = Base(12)
+        b.id = 15
+        self.assertEqual(15, b.id)
+
+    def test_nb_instances_private(self):
+        with self.assertRaises(AttributeError):
+            print(Base(12).__nb_instances)
+
+    def test_str_id(self):
+        self.assertEqual("hello", Base("hello").id)
+
+    def test_float_id(self):
+        self.assertEqual(5.5, Base(5.5).id)
+
+    def test_complex_id(self):
+        self.assertEqual(complex(5), Base(complex(5)).id)
+
+    def test_dict_id(self):
+        self.assertEqual({"a": 1, "b": 2}, Base({"a": 1, "b": 2}).id)
+
+    def test_bool_id(self):
+        self.assertEqual(True, Base(True).id)
+
+    def test_list_id(self):
+        self.assertEqual([1, 2, 3], Base([1, 2, 3]).id)
+
+    def test_tuple_id(self):
+        self.assertEqual((1, 2), Base((1, 2)).id)
+
+    def test_set_id(self):
+        self.assertEqual({1, 2, 3}, Base({1, 2, 3}).id)
+
+    def test_frozenset_id(self):
+        self.assertEqual(frozenset({1, 2, 3}), Base(frozenset({1, 2, 3})).id)
+
+    def test_range_id(self):
+        self.assertEqual(range(5), Base(range(5)).id)
+
+    def test_bytes_id(self):
+        self.assertEqual(b'Python', Base(b'Python').id)
+
+    def test_bytearray_id(self):
+        self.assertEqual(bytearray(b'abcefg'), Base(bytearray(b'abcefg')).id)
+
+    def test_memoryview_id(self):
+        self.assertEqual(memoryview(b'abcefg'), Base(memoryview(b'abcefg')).id)
+
+    def test_inf_id(self):
+        self.assertEqual(float('inf'), Base(float('inf')).id)
+
+    def test_NaN_id(self):
+        self.assertNotEqual(float('nan'), Base(float('nan')).id)
+
+    def test_two_args(self):
+        with self.assertRaises(TypeError):
+            Base(1, 2)
 
 
 class TestBase_to_json_string(unittest.TestCase):
-    '''This test  cases test the json to string
-    instances of the base class'''
+    """Unittests for testing to_json_string method of Base class."""
+
     def test_to_json_string_rectangle_type(self):
-        r = Rectangle(11, 5, 3, 7, 6)
+        r = Rectangle(10, 7, 2, 8, 6)
         self.assertEqual(str, type(Base.to_json_string([r.to_dictionary()])))
 
     def test_to_json_string_rectangle_one_dict(self):
-        r = Rectangle(11, 8, 3, 9, 7)
+        r = Rectangle(10, 7, 2, 8, 6)
         self.assertTrue(len(Base.to_json_string([r.to_dictionary()])) == 53)
 
     def test_to_json_string_rectangle_two_dicts(self):
-        r1 = Rectangle(3, 4, 6, 20, 3)
-        r2 = Rectangle(5, 3, 5, 2, 13)
+        r1 = Rectangle(2, 3, 5, 19, 2)
+        r2 = Rectangle(4, 2, 4, 1, 12)
         list_dicts = [r1.to_dictionary(), r2.to_dictionary()]
         self.assertTrue(len(Base.to_json_string(list_dicts)) == 106)
 
     def test_to_json_string_square_type(self):
-        s = Square(11, 3, 4, 5)
+        s = Square(10, 2, 3, 4)
         self.assertEqual(str, type(Base.to_json_string([s.to_dictionary()])))
 
     def test_to_json_string_square_one_dict(self):
-        s = Square(11, 3, 4, 5)
+        s = Square(10, 2, 3, 4)
         self.assertTrue(len(Base.to_json_string([s.to_dictionary()])) == 39)
 
     def test_to_json_string_square_two_dicts(self):
-        s1 = Square(11, 3, 4, 5)
-        s2 = Square(5, 6, 22, 3)
+        s1 = Square(10, 2, 3, 4)
+        s2 = Square(4, 5, 21, 2)
         list_dicts = [s1.to_dictionary(), s2.to_dictionary()]
         self.assertTrue(len(Base.to_json_string(list_dicts)) == 78)
 
@@ -96,12 +155,11 @@ class TestBase_to_json_string(unittest.TestCase):
 
 
 class TestBase_save_to_file(unittest.TestCase):
-    '''This class contains Unittests for testing
-    save_to_file method of Base class'''
+    """Unittests for testing save_to_file method of Base class."""
 
     @classmethod
-    def tear_down(self):
-        '''This instance deletes all created files'''
+    def tearDown(self):
+        """Delete any created files."""
         try:
             os.remove("Rectangle.json")
         except IOError:
@@ -173,9 +231,9 @@ class TestBase_save_to_file(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square.save_to_file([], 1)
 
-    class TestBase_from_json_string(unittest.TestCase):
-        """Unittests for testing from_json_string
-        method of Base class."""
+
+class TestBase_from_json_string(unittest.TestCase):
+    """Unittests for testing from_json_string method of Base class."""
 
     def test_from_json_string_type(self):
         list_input = [{"id": 89, "width": 10, "height": 4}]
@@ -490,7 +548,5 @@ class TestBase_load_from_file_csv(unittest.TestCase):
             Base.load_from_file_csv([], 1)
 
 
-'''
-run the test cases'''
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
