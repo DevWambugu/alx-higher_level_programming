@@ -104,45 +104,30 @@ class Rectangle(Base):
         argument order is not important. kwargs contains
         key and value pairs. If args exists, do not move to kwargs
         '''
-        if args and len(args) != 0:
-            argument = 0
-            for i in args:
-                if argument == 0:
-                    if i is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = i
-                elif argument == 1:
-                    self.width = i
-                elif argument == 2:
-                    self.height = i
-                elif argument == 3:
-                    self.x = i
-                elif argument == 4:
-                    self.y = i
-                argument += 1
-
-        elif len(kwargs) != 0:
-            for key, value in kwargs.items():
-                if key == "id":
-                    if value is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = value
-                elif key == "width":
-                    self.width = value
-                elif key == "height":
-                    self.height = value
-                elif key == "x":
-                    self.x = value
-                elif key == "y":
-                    self.y = value 
+        def __init__(self, *args, **kwargs):
+            if len(args) > 0:
+                if args[0] is not None:
+                    self.id = args[0]
+                if len(args) > 1:
+                    self.size = args[1]
+                if len(args) > 2:
+                    self.x = args[2]
+                if len(args) > 3:
+                    self.y = args[3]
+            else:
+                if 'id' in kwargs and kwargs['id'] is not None:
+                    self.id = kwargs['id']
+                if 'size' in kwargs:
+                    self.size = kwargs['size']
+                if 'x' in kwargs:
+                    self.x = kwargs['x']
+                if 'y' in kwargs:
+                    self.y = kwargs['y']
 
     def to_dictionary(self):
         '''this function returns the
         dictioanry representation of a triangle'''
-        return 
-        {
+        return {
             'width': self.width,
             'height': self.height,
             'x': self.x,

@@ -37,35 +37,25 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         '''this public method
         assigns attributes'''
-        if len(args) != 0:
-            argument = 0
-            for i in args:
-                if argument == 0:
-                    if argument is None:
-                        self.__init__(self.size, self.x, self.y)
-                    else:
-                        self.id = i
-                elif argument == 1:
-                    self.size = i
-                elif argument == 2:
-                    self.x = i
-                elif argument == 3:
-                    self.y = i
-                argument += 1
-
-        elif len(kwargs) != 0:
-            for key, value in kwargs.items():
-                if key == "id":
-                    if value is None:
-                        self.__init__(self.size, self.x, self.y)
-                    else:
-                        self.id = value
-                elif key == "size":
-                    self.size = value
-                elif key == "x":
-                    self.x = value
-                elif key == "y":
-                    self.y = value
+        def __init__(self, *args, **kwargs):
+            if len(args) > 0:
+                if args[0] is not None:
+                    self.id = args[0]
+                if len(args) > 1:
+                    self.size = args[1]
+                if len(args) > 2:
+                    self.x = args[2]
+                if len(args) > 3:
+                    self.y = args[3]
+            else:
+                if 'id' in kwargs and kwargs['id'] is not None:
+                    self.id = kwargs['id']
+                if 'size' in kwargs:
+                    self.size = kwargs['size']
+                if 'x' in kwargs:
+                    self.x = kwargs['x']
+                if 'y' in kwargs:
+                    self.y = kwargs['y']
 
     def to_dictionary(self):
         '''returns the dictionary representation of a Square'''
