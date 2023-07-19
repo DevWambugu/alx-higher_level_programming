@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#  base.py
+#  rectangle.py
 #  DevWambugu
 '''This class is be the “base” of all other classes in this project.
    The goal of it is to manage id attribute in all your future classes
