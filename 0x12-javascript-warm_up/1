@@ -1,0 +1,9 @@
+#!/usr/bin/node
+const { argv } = require('process');
+
+if (int (argv[2])){
+  console.log(int (argv[2]);
+}
+else {
+  console.log('Not a number');
+}
