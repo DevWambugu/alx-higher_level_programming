@@ -1,11 +1,7 @@
 #!/usr/bin/python3
+'''lists all states from the database hbtn_0e_0_usa'''
 import sys
 import MySQLdb
-'''lists all states from the database hbtn_0e_0_usa'''
-'''Your script should connect to a MySQL'''
-'''server running on localhost at port 3306'''
-'''Your script should take 3 arguments'''
-'''Results must be sorted in ascending order by states.id'''
 
 
 def main():
