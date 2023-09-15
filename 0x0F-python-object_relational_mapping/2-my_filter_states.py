@@ -13,8 +13,8 @@ def main():
     connection = MySQLdb.connect(host="localhost", port=3306,
                                  user=username, password=password, db=database)
     cursor = connection.cursor()
-    query = ("SELECT * FROM `states` WHERE `name` LIKE BINARY '{}'
-             ORDER BY `id`".format(state_name_searched))
+    query = ("""SELECT * FROM `states` WHERE `name` LIKE BINARY '{}'
+             ORDER BY `id`""".format(state_name_searched))
     cursor.execute(query)
     for row in cursor:
         print(row)
