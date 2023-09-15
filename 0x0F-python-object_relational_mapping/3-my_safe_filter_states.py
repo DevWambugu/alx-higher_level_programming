@@ -13,13 +13,13 @@ def main():
     connection = MySQLdb.connect(host="localhost", port=3306,
                                  user=username, password=password, db=database)
     cursor = connection.cursor()
-    query = ("""SELECT * FROM `states` WHERE `name` LIKE BINARY '{}'
-              ORDER BY `id`""".format(state_name_searched))
-    cursor.execute(query)
+    query = ("""SELECT * FROM `states` WHERE `name` LIKE BINARY %s""")
+    state_name_searched_bytes = state_name_searched.encode("utf-8")
+    cursor.execute(query, (state_name_searched_bytes,))
     for row in cursor:
         print(row)
-    cursor.close
-    connection.close
+    cursor.close()
+    connection.close()
 
 
 if __name__ == "__main__":
