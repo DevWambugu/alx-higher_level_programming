@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 '''creates a city and a state and their relationship'''
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
@@ -10,6 +11,7 @@ from sys import argv
 def main():
     """creates the State “California” with the City
     “San Francisco” from the database hbtn_0e_100_usa"""
+
     password = argv[2]
     username = argv[1]
     database = argv[3]
