@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-'''creates a city and a state and their relationship'''
+'''
+creates a city and a state and their relationship
+script takes 3 arguments
+'''
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
