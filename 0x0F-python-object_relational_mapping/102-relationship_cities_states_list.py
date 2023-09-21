@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-'''lists all State objects, and corresponding City
-objects, contained in the database hbtn_0e_101_usa'''
+'''lists all city objects
+contained in the database hbtn_0e_101_usa'''
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -9,7 +9,7 @@ from relationship_city import City
 
 
 def main():
-    '''lists all state states from the database hbtn_0e_0_usa'''
+    '''lists all city objects from the database hbtn_0e_0_usa'''
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -20,10 +20,8 @@ def main():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for state in session.query(State).order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
-        for city in state.cities:
-            print("    {}: {}".format(city.id, city.name))
+    for city in session.query(City).order_by(City.id):
+        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
 
 
 if __name__ == "__main__":
