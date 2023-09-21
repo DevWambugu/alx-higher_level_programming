@@ -6,8 +6,8 @@ script takes 3 arguments
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
-from model_city import City
+from relationship_state import State
+from relationship_city import Base, City
 from sys import argv
 
 
@@ -22,11 +22,7 @@ def main():
                            .format(username, password, database))
     Session = sessionmaker(bind=engine)
     session = Session()
-    new_state = State(name='California')
-    new_city = City(name='San Francisco')
-    new_state.cities.append(new_city)
-
-    session.add(new_state)
+    session.add(City(name="San Francisco", state=State(name="California")))
     session.commit()
     session.close()
 
