@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-if __name__ == '__main__':
+def main():
     '''
     Get all state objects from the database
     '''
@@ -26,4 +26,8 @@ if __name__ == '__main__':
 
     for state in states:
         print(f"{state.id}:", state.name)
-session.close()
+    session.close()
+
+
+if __name__ == "__main__":
+    main()
