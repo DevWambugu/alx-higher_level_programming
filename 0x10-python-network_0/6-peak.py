@@ -10,8 +10,13 @@ def find_peak(list_of_integers):
         return None
 
     for list_index in range(1, len(list_of_integers) - 1):
-        if list_of_integers[list_index] == list_of_integers[list_index - 1] and
-                list_of_integers[list_index] == list_of_integers[list_index + 1]:
+        if (list_of_integers[list_index] ==
+                list_of_integers[list_index - 1] and
+                list_of_integers[list_index] ==
+                list_of_integers[list_index + 1]):
             return list_of_integers[list_index]
-        elif list_of_integers[list_index] > list_of_integers[list_index - 1] and list_of_integers[list_index] > list_of_integers[list_index + 1]:
+        elif (list_of_integers[list_index] >
+                list_of_integers[list_index - 1] and
+                list_of_integers[list_index] >
+                list_of_integers[list_index + 1]):
             return list_of_integers[list_index]
