@@ -9,13 +9,14 @@ import sys
 import requests
 
 if __name__ == "__main__":
-    q = sys.argv[1]
-    url = 'http://0.0.0.0:5000/search_user'
-
-    if q is None:
+    if len(sys.argv) < 2:
         q = ""
+    else:
+        q = sys.argv[1]
 
+    url = 'http://0.0.0.0:5000/search_user'
     data = {"q": q}
+
     try:
         response = requests.get(url, data=data)
         response_json = response.json()
