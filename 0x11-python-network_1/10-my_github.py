@@ -9,14 +9,15 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    token = sys.argv[2]
-    username = sys.argv[1]
+    rep_name = sys.argv[1]
+    rep_owner = sys.argv[2]
     url = 'https://api.github.com/user'
 
-    response = requests.get(url, auth=(sys.argv[1], sys.argv[2]))
+    response = requests.get(url, auth=(rep_name, rep_user))
     response_json = response.json()
 
     if response.status_code != 200:
         print("None")
     else:
-        print("{}".format(response_json['id']))
+        for key, value in response_json:
+            print("{}: {}".format(response_json['sha'], respos))
